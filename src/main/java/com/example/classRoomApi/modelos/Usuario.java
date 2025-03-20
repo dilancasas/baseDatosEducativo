@@ -10,6 +10,7 @@ public class Usuario {
         private String correoElectronico;
         private String telefono;
         private TipoUsuario tipoUsuario;
+        //prueba 
 
 
         public Usuario() {
