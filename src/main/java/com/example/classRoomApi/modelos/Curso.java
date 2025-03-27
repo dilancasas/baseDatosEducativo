@@ -1,8 +1,25 @@
 package com.example.classRoomApi.modelos;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name="cursos")
 public class Curso {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_curso")
     private Integer idCurso;
+
+    @Column(name = "nombre", length = 100, unique = false, nullable = false )
     private String nombre;
+
+    //creando relaciones (muchos a 1)
+    @ManyToOne
+    @JoinColumn(name = "fk_docente", referencedColumnName = "idDocente")
+    @JsonBackReference
+    private Docente docente;
+
 
 
     public Curso() {
